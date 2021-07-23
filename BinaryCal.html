@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btns {
+            border: 2px solid black;
+            display: flex;
+            flex-wrap: wrap;
+            width: 33%;
+            height: 20vh;
+            position: relative;
+        }
+
+        #res {
+            grid-area: a;
+            background-color: lightgray;
+            border: 3px solid black;
+            height: 48px;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        #btn0,
+        #btn1 {
+            background-color: lightgreen;
+            color: brown;
+        }
+
+        #btnClr,
+        #btnEql {
+            background-color: darkgreen;
+            color: white;
+        }
+
+        #btnSum,
+        #btnSub,
+        #btnMul,
+        #btnDiv {
+            background-color: black;
+            color: red;
+        }
+
+        .btn {
+            width: 25%;
+            height: 36px;
+            font-size: 18px;
+            margin: 0px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="conatainer" id="btns">
+        <div id="res"></div>
+        <button class="btn" id="btn0" onclick="Bin0()">0</button>
+        <button class="btn" id="btn1" onclick="Bin1()">1</button>
+        <button class="btn" id="btnClr" onclick="Clear()">C</button>
+        <button class="btn" id="btnEql" onclick="Calc()">=</button>
+        <button class="btn" id="btnSum" onclick="add()">+</button>
+        <button class="btn" id="btnSub" onclick="sub()">-</button>
+        <button class="btn" id="btnMul" onclick="mul()">*</button>
+        <button class="btn" id="btnDiv" onclick="div()">/</button>
+    </div>
+
+    <script>
+        let res = document.getElementById('res');
+        function Clear() {
+            res.innerText = '';
+        }
+        function Bin0() {
+            res.innerText = res.innerText + '0';
+        }
+        function Bin1() {
+            res.innerText = res.innerText + '1';
+        }
+        function add() {
+            res.innerText = res.innerText + '+';
+        }
+        function sub() {
+            res.innerText = res.innerText + '-';
+        }
+        function mul() {
+            res.innerText = res.innerText + '*';
+        }
+        function div() {
+            res.innerText = res.innerText + '/';
+        }
+        function Calc() {
+            let str = res.innerText;
+            let reg1 = /\d*/;
+            let reg2 = /\d*$/;
+            let bin1 = str.match(reg1);
+            let bin2 = str.match(reg2);
+            console.log("bin1 = " + bin1);
+            console.log("bin2 = " + bin2);
+            if (str.indexOf('+') != -1) {
+                let a = parseInt(bin1, 2);
+                let b = parseInt(bin2, 2);
+                let sum = a+b;
+                res.innerText = sum.toString(2);
+            }
+            else if (str.indexOf('-') != -1) {
+                let a = parseInt(bin1, 2);
+                let b = parseInt(bin2, 2);
+                let sub = a-b;
+                res.innerText = sub.toString(2);
+            }
+            else if (str.indexOf('*') != -1) {
+                let a = parseInt(bin1, 2);
+                let b = parseInt(bin2, 2);
+                let mul = a*b;
+                res.innerText = mul.toString(2);
+            }
+            else if (str.indexOf('/') != -1) {
+                let a = parseInt(bin1, 2);
+                let b = parseInt(bin2, 2);
+                let div = a/b;
+                res.innerText = div.toString(2);
+            }
+        }
+    </script>
+</body>
+
+</html>

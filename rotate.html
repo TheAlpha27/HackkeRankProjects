@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 75%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            border: 2px solid black;
+            position: relative;
+        }
+        .btn{
+            position: relative;
+            width: 30%;
+            height: 48px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="btns">
+        <button class="btn" id="btn1">1</button>
+        <button class="btn" id="btn2">2</button>
+        <button class="btn" id="btn3">3</button>
+        <button class="btn" id="btn4">4</button>
+        <button class="btn" id="btn5" onclick="rota()">5</button>
+        <button class="btn" id="btn6">6</button>
+        <button class="btn" id="btn7">7</button>
+        <button class="btn" id="btn8">8</button>
+        <button class="btn" id="btn9">9</button>
+    </div>
+    <script>
+        let b1 = document.getElementById('btn1');
+        let b2 = document.getElementById('btn2');
+        let b3 = document.getElementById('btn3');
+        let b4 = document.getElementById('btn4');
+        let b6 = document.getElementById('btn6');
+        let b7 = document.getElementById('btn7');
+        let b8 = document.getElementById('btn8');
+        let b9 = document.getElementById('btn9');
+        let i = 0;
+        let arr = [1, 4, 7, 8, 9, 6, 3, 2];
+        function rota() {
+            i++;
+            b1.innerText = arr[i%8];
+            b4.innerText = arr[(i+1)%8];
+            b7.innerText = arr[(i+2)%8];
+            b8.innerText = arr[(i+3)%8];
+            b9.innerText = arr[(i+4)%8];
+            b6.innerText = arr[(i+5)%8];
+            b3.innerText = arr[(i+6)%8];
+            b2.innerText = arr[(i+7)%8];
+            return true;
+        }
+    </script>
+</body>
+
+</html>
