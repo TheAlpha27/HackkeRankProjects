@@ -1,0 +1,15 @@
+ .container {
+            width: 75%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            border: 2px solid black;
+            position: relative;
+        }
+        .btn{
+            position: relative;
+            width: 30%;
+            height: 48px;
+            font-size: 24px;
+        }
