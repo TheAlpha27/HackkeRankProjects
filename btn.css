@@ -1,0 +1,8 @@
+#btn, #res{
+            height: 5vh;
+            width: 6vw;
+            border: 2px solid black;
+            border-radius: 3px;
+            cursor: pointer;
+
+        }
